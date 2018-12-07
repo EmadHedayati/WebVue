@@ -1,13 +1,13 @@
 <template>
     <div class="container-fluid slider">
         <SliderItem class="item"
-                    v-for="item in list"
-                    v-bind:data="item"
+                    v-for="item in newsList"
+                    v-bind:news="item"
                     v-bind:key="item.id"
                     v-show="currentItemId == item.id"/>
         <div class="col-md m-4 slider-circle-layout">
             <div v-bind:class="['float-right', 'm-1', currentItemId == item.id ? 'circle-active' : 'circle']"
-                 v-for="item in list"
+                 v-for="item in newsList"
                  v-bind:key="item.id"
                  v-on:click="showItem(item.id)"/>
         </div>
@@ -23,7 +23,7 @@
         components: {SliderItem},
 
         props: {
-            list: Array,
+            newsList: Array,
         },
 
         data() {
@@ -40,7 +40,7 @@
 
         methods: {
             showNextItem: function () {
-                this.currentItemId = (this.currentItemId + 1) % this.list.length;
+                this.currentItemId = (this.currentItemId + 1) % this.newsList.length;
             },
 
             showItem: function(id) {

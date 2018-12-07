@@ -1,17 +1,17 @@
 <template>
     <transition name="fade">
         <div class="row align-items-md-end background">
-            <img class="image" v-bind:src="getImgUrl(data.url)">
+            <img class="image" v-bind:src="getImgUrl(news.url)">
             <div class="bottom">
                 <div class="col-md-4 m-4">
                     <div class="row">
                         <div class="col">
-                            <h2 class="h2 title text-white"><strong>{{data.title}}</strong></h2>
+                            <h2 class="h2 title text-white"><strong>{{news.title}}</strong></h2>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <span class="h6 text-white">{{data.description}}</span>
+                            <span class="h6 text-white">{{news.description}}</span>
                         </div>
                     </div>
                 </div>
@@ -21,18 +21,18 @@
 </template>
 
 <script>
-    import SliderItemData from "../models/SliderItemData";
+    import News from "../models/News";
 
     export default {
-        name: 'SliderItem',
+        name: 'News',
 
         props: {
-            data: SliderItemData
+            news: News
         },
 
         methods: {
             getImgUrl(url) {
-                var images = require.context('../assets/', false, /\.jpg/)
+                var images = require.context('../assets/', false, /\.jpg/);
                 return images('./' + url)
             }
         }

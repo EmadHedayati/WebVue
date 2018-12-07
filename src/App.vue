@@ -5,7 +5,7 @@
         </div>
         <div class="row">
             <div class="col-md-10 offset-1 mt-5">
-                <Slider v-bind:list="getSliderData()"/>
+                <Slider v-bind:newsList="getSliderData()"/>
             </div>
         </div>
     </div>
@@ -14,6 +14,7 @@
 <script>
     import HeaderMenu from "./components/HeaderMenu";
     import Slider from "./components/Slider";
+    import News from "./models/News";
 
     export default {
         name: 'app',
@@ -26,11 +27,11 @@
         methods: {
             getSliderData: function() {
                 return [
-                    { id: 0, title: "emad", description: "kheyli khare", url: "background_test_1.jpg"},
-                    { id: 1, title: "amin", description: "gave nare", url: "background_test_2.jpg"},
-                    { id: 2, title: "alale", description: "dg nemidunam chi benevisam inja", url: "background_test_3.jpg"},
-                    { id: 3, title: "behnam", description: "yaran che gharibane", url: "background_test_4.jpg"},
-                    { id: 4, title: "elahe", description: "raftand az in khane", url: "background_test_5.jpg"},
+                    new News(0, "emad", "kheyli khare", "background_test_1.jpg"),
+                    new News(1, "amin", "gave nare", "background_test_2.jpg"),
+                    new News(2, "alale", "dg nemidunam chi benevisam inja", "background_test_3.jpg"),
+                    new News(3, "behnam", "yaran che gharibane", "background_test_4.jpg"),
+                    new News(4, "elahe", "raftand az in khane", "background_test_5.jpg"),
                 ]
             }
         }
