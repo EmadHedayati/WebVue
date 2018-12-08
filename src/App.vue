@@ -5,31 +5,31 @@
         </div>
         <div class="row mb-5">
             <div class="col-md-10 offset-1">
-                <Slider v-bind:newsList="getSliderData()"/>
+                <Slider :newsList="getSliderData()"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-7 offset-1">
                 <div class="row mb-5">
                     <div class="col">
-                        <NewsList v-bind:newsList="getLatestNewsListData()" title="LATEST NEWS"/>
+                        <NewsList :newsList="getLatestNewsListData()" title="LATEST NEWS"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <NewsList v-bind:newsList="getFavouriteNewsListData()" title="FAVOURITE NEWS"/>
+                        <NewsList :newsList="getFavouriteNewsListData()" title="FAVOURITE NEWS"/>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="row mb-5">
                     <div class="col">
-                        <MatchList v-bind:latestMatchList="getLatestMatchListData(3)" v-bind:favouritesMatchList="getFavouriteMatchListData(5)" title="Football"/>
+                        <MatchList :latestMatchList="getLatestMatchListData(3)" :favouritesMatchList="getFavouriteMatchListData(5)" title="Football"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <MatchList v-bind:latestMatchList="getLatestMatchListData(7)" v-bind:favouritesMatchList="getFavouriteMatchListData(4)" title="Football"/>
+                        <MatchList :latestMatchList="getLatestMatchListData(7)" :favouritesMatchList="getFavouriteMatchListData(4)" title="Football"/>
                     </div>
                 </div>
             </div>

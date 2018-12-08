@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-auto p-0">
-                <img class="round image" v-bind:src="getImageUrl(news.image)"/>
+                <img class="round image" :src="getImageUrl(news.image)"/>
             </div>
         </div>
         <div class="row px-4 pb-4">

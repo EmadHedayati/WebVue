@@ -3,15 +3,17 @@
         <div class="row">
             <div class="col-md-10 offset-1">
                 <div class="row align-items-center">
-                    <div class="col-md-auto">
-                        <span class="h5"><strong>NEWS</strong></span>
-                        <span class="h6 text-muted"> | Football & Basketball</span>
-                    </div>
+                    <router-link to="/">
+                        <div class="col-md-auto">
+                            <span class="h5"><strong>NEWS</strong></span>
+                            <span class="h6 text-muted"> | Football & Basketball</span>
+                        </div>
+                    </router-link>
                     <div class="col-md p-0">
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
-                        <router-link to="/new-page" class="m-3">Go to Foo</router-link>
+                        <router-link to="/new-page" class="m-3 float-right align-self-center">New Page</router-link>
                     </div>
                 </div>
             </div>

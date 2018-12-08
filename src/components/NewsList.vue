@@ -11,8 +11,8 @@
         <div class="row">
             <NewsListItem class="item my-2"
                           v-for="item in newsList"
-                          v-bind:news="item"
-                          v-bind:key="item.id"/>
+                          :news="item"
+                          :key="item.id"/>
         </div>
     </div>
 </template>

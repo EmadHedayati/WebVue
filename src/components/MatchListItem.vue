@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row p-3 align-items-md-center">
             <div class="col">
-                <img class="circle image float-left mr-2" v-bind:src="getImageUrl(match.homeTeam.image)"/>
+                <img class="circle image float-left mr-2" :src="getImageUrl(match.homeTeam.image)"/>
                 <span class="h6 text-dark font-weight-bold float-left">{{match.homeTeam.shortTitle}}</span>
             </div>
             <div class="col-auto">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col">
-                <img class="circle image float-right ml-2" v-bind:src="getImageUrl(match.awayTeam.image)"/>
+                <img class="circle image float-right ml-2" :src="getImageUrl(match.awayTeam.image)"/>
                 <span class="h6 text-dark font-weight-bold float-right">{{match.awayTeam.shortTitle}}</span>
             </div>
         </div>

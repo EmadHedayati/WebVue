@@ -5,12 +5,12 @@
                 <span class="h4 text-dark font-weight-bold">{{title}}</span>
             </div>
             <div class="col-auto align-items-end">
-                <span v-bind:class="['h6', selected == 'Latest' ? 'text-info' : 'text-muted']"
-                      v-on:click="selectTab('Latest')"
+                <span class="h6" :class="[selected == 'Latest' ? 'text-info' : 'text-muted']"
+                      @click="selectTab('Latest')"
                       v-text="'Latest'"/>
                 <span class="h6 font-weight-bold text-muted"> / </span>
-                <span v-bind:class="['h6', selected == 'Favourites' ? 'text-info' : 'text-muted']"
-                      v-on:click="selectTab('Favourites')"
+                <span class="h6" :class="[selected == 'Favourites' ? 'text-info' : 'text-muted']"
+                      @click="selectTab('Favourites')"
                       v-text="'Favourites'"/>
             </div>
         </div>
@@ -19,12 +19,12 @@
         </div>
         <div class="row py-4">
             <MatchListItem v-for="item in latestMatchList"
-                           v-bind:match="item"
-                           v-bind:key="item.id"
+                           :match="item"
+                           :key="item.id"
                            v-show="selected == 'Latest'"/>
             <MatchListItem v-for="item in favouritesMatchList"
-                           v-bind:match="item"
-                           v-bind:key="item.id"
+                           :match="item"
+                           :key="item.id"
                            v-show="selected == 'Favourites'"/>
         </div>
     </div>

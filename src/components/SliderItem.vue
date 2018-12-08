@@ -1,7 +1,7 @@
 <template>
     <transition name="fade">
         <div class="row align-items-md-end round background">
-            <img class="round image" v-bind:src="getImageUrl(news.image)">
+            <img class="round image" :src="getImageUrl(news.image)">
             <div class="bottom">
                 <div class="col-md-4 m-4">
                     <div class="row">

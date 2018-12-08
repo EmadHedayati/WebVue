@@ -7,7 +7,15 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const routes = [
-    {path: '/new-page', component: NewPage},
+    {
+        path: '/',
+        component: App,
+    },
+    {
+        path: '/new-page',
+        component: NewPage,
+        props: true
+    },
 ]
 
 const router = new VueRouter({
