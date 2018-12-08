@@ -1,0 +1,18 @@
+.fill-border {
+    background: #ededed;
+    border-radius: 10px;
+    border: 1px solid #c3c3c3;
+}
+
+.border {
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+}
+
+.line {
+    border: 1px solid #e2e2e2;
+}
+
+.round {
+    border-radius: 10px;
+}

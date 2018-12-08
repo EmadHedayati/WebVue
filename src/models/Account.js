@@ -1,4 +1,4 @@
-class News {
+class Account {
     get _attributes(){
         return {
             id: {
@@ -29,4 +29,4 @@ class News {
 
 }
 
-export default News;
+export default Account;

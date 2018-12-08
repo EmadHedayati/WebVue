@@ -35,22 +35,6 @@
                 currentItemId: 0
             }
         },
-
-        mounted() {
-            window.setInterval(() => {
-                this.showNextItem();
-            }, 5000);
-        },
-
-        methods: {
-            showNextItem: function () {
-                this.currentItemId = (this.currentItemId + 1) % this.newsList.length;
-            },
-
-            showItem: function (id) {
-                this.currentItemId = id;
-            }
-        }
     }
 </script>
 

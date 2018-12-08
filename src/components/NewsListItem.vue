@@ -10,12 +10,12 @@
                 </div>
             </div>
             <div class="col-auto p-0">
-                <img class="image" v-bind:src="getImgUrl(news.url)"/>
+                <img class="image" v-bind:src="getImageUrl(news.image)"/>
             </div>
         </div>
         <div class="row px-4 pb-4">
             <div class="col p-0">
-                <span class="h6 text-muted">{{getFormattedTime(news.date)}}</span>
+                <span class="h6 text-muted">{{getFormattedTime(news.dateCreated)}}</span>
             </div>
             <div class="col-auto p-0">
                 ...
@@ -35,9 +35,8 @@
         },
 
         methods: {
-            getImgUrl(url) {
-                var images = require.context('../assets/', false, /\.jpg/);
-                return images('./' + url)
+            getImageUrl(url) {
+                return require('../assets/' + url);
             },
 
             getFormattedTime(date) {
@@ -52,7 +51,7 @@
 <style scoped>
     .background {
         border-radius: 10px;
-        border: 1px solid #c3c3c3;
+        border: 1px solid #d6d6d6;
     }
 
     .image {
