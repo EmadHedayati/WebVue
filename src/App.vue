@@ -1,26 +1,37 @@
 <template>
     <div id="app">
-        <div class="row">
+        <div class="row mb-5">
             <HeaderMenu/>
         </div>
-        <div class="row mt-5">
+        <div class="row mb-5">
             <div class="col-md-10 offset-1">
                 <Slider v-bind:newsList="getSliderData()"/>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-md-7 offset-1">
-                <NewsList v-bind:newsList="getLatestNewsListData()" title="LATEST NEWS"/>
+                <div class="row mb-5">
+                    <div class="col">
+                        <NewsList v-bind:newsList="getLatestNewsListData()" title="LATEST NEWS"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <NewsList v-bind:newsList="getFavouriteNewsListData()" title="FAVOURITE NEWS"/>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
-                <MatchList v-bind:latestMatchList="getLatestMatchListData()" v-bind:favouritesMatchList="getFavouriteMatchListData()" title="Football"/>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-7 offset-1">
-                <NewsList v-bind:newsList="getFavouriteNewsListData()" title="FAVOURITE NEWS"/>
-            </div>
-            <div class="col-md-3">
+                <div class="row mb-5">
+                    <div class="col">
+                        <MatchList v-bind:latestMatchList="getLatestMatchListData(3)" v-bind:favouritesMatchList="getFavouriteMatchListData(5)" title="Football"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <MatchList v-bind:latestMatchList="getLatestMatchListData(7)" v-bind:favouritesMatchList="getFavouriteMatchListData(4)" title="Football"/>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,12 +40,9 @@
 <script>
     import HeaderMenu from "./components/HeaderMenu";
     import Slider from "./components/Slider";
-    import News from "./models/News";
     import NewsList from "./components/NewsList";
-    import Match from "./models/Match";
-    import Team from "./models/Team";
-    import Stadium from "./models/Stadium";
     import MatchList from "./components/MatchList";
+    import Dummy from "./utils/Dummy";
 
     export default {
         name: 'app',
@@ -48,51 +56,23 @@
 
         methods: {
             getSliderData: function() {
-                return [
-                    new News(0, "emad", "kheyli khare", "background_test_1.jpg"),
-                    new News(1, "amin", "gave nare", "background_test_2.jpg"),
-                    new News(2, "alale", "dg nemidunam chi benevisam inja", "background_test_3.jpg"),
-                    new News(3, "behnam", "yaran che gharibane", "background_test_4.jpg"),
-                    new News(4, "elahe", "raftand az in khane", "background_test_5.jpg"),
-                ]
+                return Dummy.newsList(5);
             },
 
             getLatestNewsListData: function() {
-                return [
-                    new News(0, "Avalin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                    new News(1, "Dovomin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                    new News(2, "Sevomin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                ]
+                return Dummy.newsList(3);
             },
 
             getFavouriteNewsListData: function() {
-                return [
-                    new News(0, "Avalin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                    new News(1, "Dovomin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                    new News(2, "Sevomin khabar title esh", "description e avalin khabari ke title esho alan didin", "background_test_1.jpg"),
-                ]
+                return Dummy.newsList(3);
             },
 
-            getLatestMatchListData: function() {
-                var homeTeam = new Team(0, "FC Barcelona", "Last Year UCL Winner", "background_test_1.jpg", new Date().getTime(), "FCB");
-                var awayTeam = new Team(1, "Real Madrid", "Three Year In a Row UCL Winner", "background_test_1.jpg", new Date().getTime(), "RMD");
-                return [
-                    new Match(0, homeTeam, awayTeam, 2, 1, new Date().getTime(), new Stadium(), true, new Date().getTime()),
-                    new Match(1, homeTeam, awayTeam, 4, 3, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                    new Match(2, homeTeam, awayTeam, 0, 1, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                ]
+            getLatestMatchListData: function(num) {
+                return Dummy.matchList(num);
             },
 
-            getFavouriteMatchListData: function() {
-                var homeTeam = new Team(0, "FC Barcelona", "Last Year UCL Winner", "background_test_1.jpg", new Date().getTime(), "FCB");
-                var awayTeam = new Team(1, "Real Madrid", "Three Year In a Row UCL Winner", "background_test_1.jpg", new Date().getTime(), "RMD");
-                return [
-                    new Match(0, homeTeam, awayTeam, 2, 1, new Date().getTime(), new Stadium(), true, new Date().getTime()),
-                    new Match(1, homeTeam, awayTeam, 1, 1, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                    new Match(2, homeTeam, awayTeam, 1, 4, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                    new Match(2, homeTeam, awayTeam, 3, 3, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                    new Match(2, homeTeam, awayTeam, 1, 2, new Date().getTime(), new Stadium(), false, new Date().getTime()),
-                ]
+            getFavouriteMatchListData: function(num) {
+                return Dummy.matchList(num);
             }
         }
     }

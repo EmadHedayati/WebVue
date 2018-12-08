@@ -1,17 +1,17 @@
 import Account from "./Account";
 
 class Team extends Account {
-    get _attributes(){
+    getAttributes() {
         return {
             shortTitle: {
-                String,
+                type: String,
+                default: ''
             },
         }
     }
 
-    constructor(attributes, shortTitle){
+    constructor(attributes) {
         super(attributes);
-        this.shortTitle = shortTitle;
     }
 }
 

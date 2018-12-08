@@ -1,12 +1,12 @@
 import Account from "./Account";
 
 class Player extends Account {
-    get _attributes(){
+    getAttributes(){
         return {
         }
     }
 
-    constructor(attributes){
+    constructor(attributes) {
         super(attributes);
     }
 }

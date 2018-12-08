@@ -11,6 +11,7 @@
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
                         <img class="m-3 header-icon float-right" src="../assets/logo.png">
+                        <router-link to="/new-page" class="m-3">Go to Foo</router-link>
                     </div>
                 </div>
             </div>
@@ -25,24 +26,6 @@
 </script>
 
 <style scoped>
-    h3 {
-        margin: 40px 0 0;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
-    }
-
     .background {
         -webkit-box-shadow: 0px 3px 28px -2px rgba(0, 0, 0, 0.23);
         -moz-box-shadow: 0px 3px 28px -2px rgba(0, 0, 0, 0.23);
@@ -53,5 +36,4 @@
         width: 30px;
         height: 30px;
     }
-
 </style>

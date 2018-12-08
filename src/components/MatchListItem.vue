@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="row p-3 align-items-md-center">
             <div class="col">
-                <img class="image float-left mr-2" v-bind:src="getImageUrl(match.homeTeam.image)"/>
-                <span class="h6 text-dark font-weight-bold float-left">{{match.homeTeam.title}}</span>
+                <img class="circle image float-left mr-2" v-bind:src="getImageUrl(match.homeTeam.image)"/>
+                <span class="h6 text-dark font-weight-bold float-left">{{match.homeTeam.shortTitle}}</span>
             </div>
             <div class="col-auto">
                 <div class="row p-0">
@@ -18,8 +18,8 @@
                 </div>
             </div>
             <div class="col">
-                <img class="image float-right ml-2" v-bind:src="getImageUrl(match.awayTeam.image)"/>
-                <span class="h6 text-dark font-weight-bold float-right">{{match.awayTeam.title}}</span>
+                <img class="circle image float-right ml-2" v-bind:src="getImageUrl(match.awayTeam.image)"/>
+                <span class="h6 text-dark font-weight-bold float-right">{{match.awayTeam.shortTitle}}</span>
             </div>
         </div>
     </div>
@@ -29,30 +29,37 @@
     import Match from "../models/Match";
 
     export default {
-        name: 'MatchListItem',
+        name: "MatchListItem",
 
         props: {
-            match: Match,
+            match: Match
         },
 
         methods: {
             getImageUrl(url) {
-                return require('../assets/' + url);
+                return require("../assets/" + url);
             },
 
             getFormattedTime(date) {
-                var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                var days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                ];
                 var tmp = new Date();
                 tmp.setTime(date);
                 return days[tmp.getDay()] + " " + tmp.getHours() + ":" + tmp.getMinutes();
-            },
-        },
-    }
+            }
+        }
+    };
 </script>
 
 <style scoped>
     .image {
-        border-radius: 20px;
         width: 20px;
         height: 20px;
     }

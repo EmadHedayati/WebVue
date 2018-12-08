@@ -1,30 +1,33 @@
-class News {
-    get _attributes(){
+import Model from "./Model";
+
+class News extends Model {
+    getAttributes(){
         return {
             id: {
-                Number,
+                type: Number,
+                default: ''
             },
             title: {
-                String,
+                type: String,
+                default: ''
             },
             description: {
-                String,
+                type: String,
+                default: ''
             },
             image: {
-                String,
+                type: String,
+                default: ''
             },
             dateCreated: {
-                Number,
+                type: String,
+                default: new Date().getTime()
             },
         }
     }
 
-    constructor(id = 0, title = "Title", description = "Description", image = "logo.png", dateCreated = new Date().getTime()){
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.image = image;
-        this.dateCreated = dateCreated;
+    constructor(attributes) {
+        super(attributes);
     }
 
 }

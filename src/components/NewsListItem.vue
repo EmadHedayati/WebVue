@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid background">
+    <div class="container-fluid border">
         <div class="row p-4">
             <div class="col">
                 <div class="row">
@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="col-auto p-0">
-                <img class="image" v-bind:src="getImageUrl(news.image)"/>
+                <img class="round image" v-bind:src="getImageUrl(news.image)"/>
             </div>
         </div>
         <div class="row px-4 pb-4">
@@ -49,14 +49,7 @@
 </script>
 
 <style scoped>
-    .background {
-        border-radius: 10px;
-        border: 1px solid #d6d6d6;
-    }
-
     .image {
-        border-radius: 10px;
-        border: 1px solid #c3c3c3;
         width: 80px;
         height: 80px;
     }

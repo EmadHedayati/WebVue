@@ -1,51 +1,52 @@
 import Team from "./Team";
 import Stadium from "./Stadium";
+import Model from "./Model";
 
-class Match {
-    get _attributes(){
+class Match extends Model {
+    getAttributes() {
         return {
             id: {
-                Number,
+                type: Number,
+                default: ''
             },
             homeTeam: {
-                Team,
+                type: Team,
+                default: ''
             },
             awayTeam: {
-                Team,
+                type: Team,
+                default: ''
             },
             homeScore: {
-                Number,
+                type: Number,
+                default: ''
             },
             awayScore: {
-                Number,
+                type: Number,
+                default: ''
             },
             date: {
-                Number,
+                type: Number,
+                default: ''
             },
             stadium: {
-                Stadium,
+                type: Stadium,
+                default: ''
             },
             live: {
-                Boolean,
+                type: Boolean,
+                default: ''
             },
             dateCreated: {
-                Number,
+                type: Number,
+                default: ''
             },
         }
     }
 
-    constructor(id = 0, homeTeam, awayTeam, homeScore = 0, awayScore = 0, date = new Date().getTime(), stadium, live = false, dateCreated = new Date().getTime()){
-        this.id = id;
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.homeScore = homeScore;
-        this.awayScore = awayScore;
-        this.date = date;
-        this.stadium = stadium;
-        this.live = live;
-        this.dateCreated = dateCreated;
+    constructor(attributes) {
+        super(attributes);
     }
-
 }
 
 export default Match;

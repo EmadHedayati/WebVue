@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid background">
+    <div class="container-fluid fill-border">
         <div class="row mb-3 px-3 pt-4">
             <div class="col">
                 <span class="h4 text-dark font-weight-bold">{{title}}</span>
@@ -59,12 +59,4 @@
 </script>
 
 <style scoped>
-    .background {
-        background: #ededed;
-        border-radius: 10px;
-    }
-
-    .line {
-        border: 1px solid #e2e2e2;
-    }
 </style>

@@ -1,32 +1,34 @@
-class Account {
-    get _attributes(){
+import Model from "./Model";
+
+class Account extends Model {
+    getAttributes() {
         return {
             id: {
-                Number,
+                type: Number,
+                default: ''
             },
             title: {
-                String,
+                type: String,
+                default: ''
             },
             description: {
-                String,
+                type: String,
+                default: ''
             },
             image: {
-                String,
+                type: String,
+                default: ''
             },
             dateCreated: {
-                Number,
+                type: Number,
+                default: ''
             },
         }
     }
 
-    constructor(id = 0, title = "Title", description = "Description", image = "logo.png", dateCreated = new Date().getTime()){
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.image = image;
-        this.dateCreated = dateCreated;
+    constructor(attributes) {
+        super(attributes);
     }
-
 }
 
 export default Account;

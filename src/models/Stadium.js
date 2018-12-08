@@ -1,12 +1,11 @@
 import Account from "./Account";
 
 class Stadium extends Account {
-    get _attributes(){
-        return {
-        }
+    getAttributes() {
+        return {}
     }
 
-    constructor(attributes){
+    constructor(attributes) {
         super(attributes);
     }
 }
