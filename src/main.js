@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import Home from './components/Home'
 import NewPage from './components/NewPage'
 
 Vue.config.productionTip = false
@@ -9,7 +10,7 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        component: App,
+        component: Home,
     },
     {
         path: '/new-page',
