@@ -6,10 +6,10 @@
                     :key="item.id"
                     v-show="currentItemId == item.id"/>
         <div class="col-md m-4 slider-circle-layout">
-            <div :class="['float-right', 'm-1', currentItemId == item.id ? 'circle-active' : 'circle']"
+            <div class="float-right m-1" :class="[currentItemId == item.id ? 'circle-active' : 'circle']"
                  v-for="item in newsList"
                  :key="item.id"
-                 @click="showItem(item.id)"/>
+                 @click="showItem(item.id)"></div>
         </div>
     </div>
 </template>

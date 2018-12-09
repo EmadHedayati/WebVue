@@ -2,16 +2,16 @@
     <div class="container-fluid fill-border">
         <div class="row mb-3 px-3 pt-4">
             <div class="col">
-                <span class="h4 text-dark font-weight-bold">{{title}}</span>
+                <span class="h4 font-weight-bold">{{title}}</span>
             </div>
-            <div class="col-auto align-items-end">
+            <div class="col-auto align-self-md-end">
                 <span class="h6" :class="[selected == 'Latest' ? 'text-info' : 'text-muted']"
                       @click="selectTab('Latest')"
-                      v-text="'Latest'"/>
+                      v-text="'Latest'"></span>
                 <span class="h6 font-weight-bold text-muted"> / </span>
                 <span class="h6" :class="[selected == 'Favourites' ? 'text-info' : 'text-muted']"
                       @click="selectTab('Favourites')"
-                      v-text="'Favourites'"/>
+                      v-text="'Favourites'"></span>
             </div>
         </div>
         <div class="row">

@@ -3,10 +3,10 @@
         <div class="row p-4">
             <div class="col">
                 <div class="row">
-                    <span class="h5 text-dark font-weight-bold">{{news.title}}</span>
+                    <span class="h5 text-dark font-weight-bold mr-4">{{news.title}}</span>
                 </div>
                 <div class="row">
-                    <span class="h6 text-dark">{{news.description}}</span>
+                    <span class="h6 text-dark mr-4">{{news.description}}</span>
                 </div>
             </div>
             <div class="col-auto p-0">

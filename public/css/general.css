@@ -24,3 +24,14 @@
     width: 30px;
     height: 30px;
 }
+
+.cp {
+    cursor: pointer;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+

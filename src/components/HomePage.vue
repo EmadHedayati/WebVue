@@ -43,7 +43,7 @@
     import Dummy from "../utils/Dummy";
 
     export default {
-        name: 'Home',
+        name: 'HomePage',
 
         components: {
             MatchList,

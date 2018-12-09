@@ -29,7 +29,6 @@ class News extends Model {
     constructor(attributes) {
         super(attributes);
     }
-
 }
 
 export default News;

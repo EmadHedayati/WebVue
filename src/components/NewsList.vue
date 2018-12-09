@@ -29,12 +29,6 @@
             newsList: Array,
             title: String,
         },
-
-        data() {
-            return {
-                currentItemId: 0
-            }
-        },
     }
 </script>
 

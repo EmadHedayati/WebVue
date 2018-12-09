@@ -1,0 +1,13 @@
+/* import only the necessary Bootstrap files */
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+
+ /*-------begin customization-------- */
+/* change the primary theme color, and add a new theme color */
+
+$font-size-base: 0.5rem !default; // Assumes the browser default, typically `16px`
+
+/* -------end customization-------- */
+/* finally, import Bootstrap to set the changes! */
+
+@import "../../node_modules/bootstrap/scss/bootstrap";

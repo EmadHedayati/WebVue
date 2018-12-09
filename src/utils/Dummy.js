@@ -3,6 +3,7 @@ import News from "../models/News";
 import Player from "../models/Player";
 import Stadium from "../models/Stadium";
 import Team from "../models/Team";
+import Table from "../models/Table";
 
 class Dummy {
     static match(id = 0) {
@@ -32,7 +33,7 @@ class Dummy {
             id: id,
             title: this.randomTitle(),
             description: this.randomDescription(),
-            image: this.randomImage(5),
+            image: this.randomImage(),
             dataCreated: this.randomDate(),
         })
     }
@@ -100,6 +101,27 @@ class Dummy {
         return array;
     }
 
+    static table(col = 4, row = 3) {
+        let colList = [];
+        colList.push(this.randomWord());
+        for (let i = 0; i < col; i++) {
+            colList.push(this.randomWord());
+        }
+
+        let rowList = [];
+        for (let i = 0; i < row; i++) {
+            rowList.push([]);
+            for (let j = 0; j < col + 1; j++) {
+                rowList[i].push(this.randomWord());
+            }
+        }
+
+        return new Table({
+            colList: colList,
+            rowList: rowList,
+        })
+    }
+
     static randomNumber(max) {
         let random = Math.random() * max;
         return Math.floor(random);
@@ -132,16 +154,24 @@ class Dummy {
         return this.randomElement(images);
     }
 
+    static randomWord() {
+        var faker = require('faker');
+        return faker.lorem.words(1);
+    }
+
     static randomTitle() {
-        return "Title";
+        var faker = require('faker');
+        return faker.lorem.words(3 + this.randomNumber(4));
     }
 
     static randomShortTitle() {
-        return "TIT";
+        let chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        return this.randomElement(chars) + this.randomElement(chars) + this.randomElement(chars);
     }
 
     static randomDescription() {
-        return "Description";
+        var faker = require('faker');
+        return faker.lorem.sentence(15 + this.randomNumber(20));
     }
 }
 
