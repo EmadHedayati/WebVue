@@ -4,12 +4,12 @@
             <div class="col">
                 <span class="h4 font-weight-bold">{{title}}</span>
             </div>
-            <div class="col-auto align-self-md-end">
-                <span class="h6" :class="[selected == 'Latest' ? 'text-info' : 'text-muted']"
+            <div class="col-auto align-self-md-end" v-if="!singleType">
+                <span class="h6 cp" :class="[selected == 'Latest' ? 'text-info' : 'text-muted']"
                       @click="selectTab('Latest')"
                       v-text="'Latest'"></span>
                 <span class="h6 font-weight-bold text-muted"> / </span>
-                <span class="h6" :class="[selected == 'Favourites' ? 'text-info' : 'text-muted']"
+                <span class="h6 cp" :class="[selected == 'Favourites' ? 'text-info' : 'text-muted']"
                       @click="selectTab('Favourites')"
                       v-text="'Favourites'"></span>
             </div>
@@ -39,6 +39,7 @@
         components: {MatchListItem},
 
         props: {
+            singleType: Boolean,
             latestMatchList: Array,
             favouritesMatchList: Array,
             title: String,

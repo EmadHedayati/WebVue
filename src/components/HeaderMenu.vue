@@ -10,10 +10,11 @@
                         </div>
                     </router-link>
                     <div class="col-md p-0">
-                        <img class="my-3 ml-3 header-icon float-right" src="../assets/logo.png">
-                        <img class="m-3 header-icon float-right" src="../assets/logo.png">
-                        <img class="m-3 header-icon float-right" src="../assets/logo.png">
-                        <router-link to="/team" class="m-3 float-right align-self-center cp">New Page</router-link>
+                        <img class="my-3 ml-3 icon-size float-right" src="../assets/icons/baseline-person-24px.svg">
+                        <router-link to="/league-list" tag="div" class="cp">
+                            <img class="m-3 icon-size float-right" src="../assets/icons/baseline-search-24px.svg">
+                        </router-link>
+                        <img class="m-3 icon-size float-right" src="../assets/icons/baseline-home-24px.svg">
                     </div>
                 </div>
             </div>
@@ -32,10 +33,5 @@
         -webkit-box-shadow: 0px 3px 28px -2px rgba(0, 0, 0, 0.23);
         -moz-box-shadow: 0px 3px 28px -2px rgba(0, 0, 0, 0.23);
         box-shadow: 0px 3px 28px -2px rgba(0, 0, 0, 0.23);
-    }
-
-    .header-icon {
-        width: 30px;
-        height: 30px;
     }
 </style>

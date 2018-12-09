@@ -4,11 +4,13 @@ import Player from "../models/Player";
 import Stadium from "../models/Stadium";
 import Team from "../models/Team";
 import Table from "../models/Table";
+import League from "../models/League";
+import LeagueTeam from "../models/LeagueTeam";
 
 class Dummy {
-    static match(id = 0) {
+    static match() {
         return new Match({
-            id: id,
+            id: this.randomNumber(1000000),
             homeTeam: this.team(),
             awayTeam: this.team(),
             homeScore: this.randomNumber(5),
@@ -23,14 +25,14 @@ class Dummy {
     static matchList(num) {
         let array = [];
         for (let i = 0; i < num; i++) {
-            array.push(this.match(i));
+            array.push(this.match());
         }
         return array;
     }
 
-    static news(id = 0) {
+    static news() {
         return new News({
-            id: id,
+            id: this.randomNumber(1000000),
             title: this.randomTitle(),
             description: this.randomDescription(),
             image: this.randomImage(),
@@ -41,14 +43,14 @@ class Dummy {
     static newsList(num) {
         let array = [];
         for (let i = 0; i < num; i++) {
-            array.push(this.news(i));
+            array.push(this.news());
         }
         return array;
     }
 
-    static player(id = 0) {
+    static player() {
         return new Player({
-            id: id,
+            id: this.randomNumber(1000000),
             title: this.randomTitle(),
             description: this.randomDescription(),
             image: this.randomImage(),
@@ -64,9 +66,9 @@ class Dummy {
         return array;
     }
 
-    static stadium(id = 0) {
+    static stadium() {
         return new Stadium({
-            id: id,
+            id: this.randomNumber(1000000),
             title: this.randomTitle(),
             description: this.randomDescription(),
             image: this.randomImage(),
@@ -82,9 +84,9 @@ class Dummy {
         return array;
     }
 
-    static team(id = 0) {
+    static team() {
         return new Team({
-            id: id,
+            id: this.randomNumber(1000000),
             title: this.randomTitle(),
             shortTitle: this.randomShortTitle(),
             description: this.randomDescription(),
@@ -96,12 +98,51 @@ class Dummy {
     static teamList(num) {
         let array = [];
         for (let i = 0; i < num; i++) {
-            array.push(this.team(i));
+            array.push(this.team());
         }
         return array;
     }
 
-    static table(col = 4, row = 3) {
+    static leagueTeam(rank) {
+        return new LeagueTeam({
+            team: this.team(),
+            points: this.randomNumber(20),
+            rank: rank,
+            played: this.randomNumber(16),
+            goalDifference: this.randomNumber(40),
+        })
+    }
+
+    static leagueTeamList(num) {
+        let array = [];
+        for (let i = 0; i < num; i++) {
+            array.push(this.leagueTeam(i + 1));
+        }
+        return array;
+    }
+
+    static league() {
+        return new League({
+            id: this.randomNumber(1000000),
+            title: this.randomTitle(),
+            description: this.randomDescription(),
+            image: this.randomImage(),
+            dataCreated: this.randomDate(),
+            matchList: this.matchList(3),
+            nextMatch: this.match(),
+            leagueTeamTable: this.createLeagueTeamTable(this.leagueTeamList(16))
+        })
+    }
+
+    static leagueList(num) {
+        let array = [];
+        for (let i = 0; i < num; i++) {
+            array.push(this.league());
+        }
+        return array;
+    }
+
+    static table(col = 4, row = 3, type = 'team') {
         let colList = [];
         colList.push(this.randomWord());
         for (let i = 0; i < col; i++) {
@@ -111,9 +152,37 @@ class Dummy {
         let rowList = [];
         for (let i = 0; i < row; i++) {
             rowList.push([]);
-            for (let j = 0; j < col + 1; j++) {
+            if (type == 'team')
+                rowList[i].push(this.team());
+            if (type == 'player')
+                rowList[i].push(this.player());
+            for (let j = 0; j < col; j++) {
                 rowList[i].push(this.randomWord());
             }
+        }
+
+        return new Table({
+            colList: colList,
+            rowList: rowList,
+        })
+    }
+
+    static createLeagueTeamTable(leagueTeamTable) {
+        let colList = [];
+        colList.push('League Chart');
+        colList.push('Rank');
+        colList.push('Points');
+        colList.push('Played');
+        colList.push('Goal Difference');
+
+        let rowList = [];
+        for (let i = 0; i < leagueTeamTable.length; i++) {
+            rowList.push([]);
+            rowList[i].push(leagueTeamTable[i].team);
+            rowList[i].push(leagueTeamTable[i].rank);
+            rowList[i].push(leagueTeamTable[i].points);
+            rowList[i].push(leagueTeamTable[i].played);
+            rowList[i].push(leagueTeamTable[i].goalDifference);
         }
 
         return new Table({

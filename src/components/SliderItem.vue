@@ -2,8 +2,10 @@
     <transition name="fade">
         <div class="row align-items-md-end round background">
             <img class="round image" :src="getImageUrl(news.image)">
+            <div class="image-gradient">
+            </div>
             <div class="bottom">
-                <div class="col-md-4 m-4">
+                <div class="col-md-6 m-4">
                     <div class="row">
                         <div class="col">
                             <h2 class="h2 title text-white"><strong>{{news.title}}</strong></h2>
@@ -50,10 +52,13 @@
         height: 100%;
     }
 
-    .image::after {
-        border-radius: 100px;
-        content: '';
+    .image-gradient {
         position: absolute;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        bottom: 0px;
+        left: 0px;
         top: 0;
         left: 0;
         width: 100%;

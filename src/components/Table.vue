@@ -1,5 +1,5 @@
 <template>
-    <div class="table-responsive  border mb-5">
+    <div class="table-responsive border">
         <table class="table m-0">
             <thead>
             <tr>
@@ -16,8 +16,18 @@
                 :key="rowIndex">
                 <th scope="row"
                     class="text-dark font-weight-normal pl-4 no-border"
-                    :class="[rowIndex === 0 ? 'pt-4' : '', rowIndex === table.rowList.length - 1 ? 'pb-4' : '']"
-                    v-text="row[0]"></th>
+                    :class="[rowIndex === 0 ? 'pt-4' : '', rowIndex === table.rowList.length - 1 ? 'pb-4' : '']">
+                    <router-link :to="getRouterUrl(row[0])" tag="div" class="cp">
+                        <div class="row">
+                            <div class="col-auto py-0 px-2">
+                                <img class="circle image ml-2" :src="getImageUrl(row[0].image)"/>
+                            </div>
+                            <div class="col py-0 pl-2 pr-4 align-items-start">
+                                <span class="h6 text-dark font-weight-bold">{{row[0].title}}</span>
+                            </div>
+                        </div>
+                    </router-link>
+                </th>
                 <td class="text-dark font-weight-normal text-center left-border"
                     :class="[rowIndex === 0 ? 'pt-4' : '', rowIndex === table.rowList.length - 1 ? 'pb-4' : '']"
                     v-for="(cell, cellIndex) in row.slice(1, row.length)"
@@ -31,6 +41,8 @@
 
 <script>
     import Table from "../models/Table";
+    import Team from "../models/Team";
+    import Player from "../models/Player";
 
     export default {
         name: 'Table',
@@ -38,10 +50,29 @@
         props: {
             table: Table,
         },
+
+        methods: {
+            getImageUrl(url) {
+                return require('../assets/' + url);
+            },
+
+            getRouterUrl(account) {
+                if (account instanceof Team)
+                    return {name: 'team', params: {id: account.id}};
+                if (account instanceof Player)
+                    return {name: 'player', params: {id: account.id}};
+            }
+        },
     }
 </script>
 
 <style scoped>
+    /*table {*/
+        /*display: block;*/
+        /*max-height: 500px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+
     .w-35 {
         width: 35%;
     }
@@ -69,5 +100,10 @@
         border-top: none;
         border-bottom: 1px solid #e2e2e2;
         border-left: 1px solid #e2e2e2;
+    }
+
+    .image {
+        width: 20px;
+        height: 20px;
     }
 </style>

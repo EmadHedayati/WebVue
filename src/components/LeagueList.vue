@@ -9,24 +9,24 @@
             </div>
         </div>
         <div class="row">
-            <NewsListItem class="item my-2"
-                          v-for="item in newsList"
-                          :news="item"
-                          :key="item.id"/>
+            <LeagueListItem class="item my-2"
+                            v-for="item in leagueList"
+                            :league="item"
+                            :key="item.id"/>
         </div>
     </div>
 </template>
 
 <script>
-    import NewsListItem from "./NewsListItem";
+    import LeagueListItem from "./LeagueListItem";
 
     export default {
-        name: 'NewsList',
+        name: 'LeagueList',
 
-        components: {NewsListItem},
+        components: {LeagueListItem},
 
         props: {
-            newsList: Array,
+            leagueList: Array,
             title: String,
         },
     }

@@ -1,15 +1,15 @@
 <template>
     <div class="container-fluid slider">
         <SliderItem class="item"
-                    v-for="item in newsList"
+                    v-for="(item, index) in newsList"
                     :news="item"
-                    :key="item.id"
-                    v-show="currentItemId == item.id"/>
+                    :key="index"
+                    v-show="currentItem == index"/>
         <div class="col-md m-4 slider-circle-layout">
-            <div class="float-right m-1" :class="[currentItemId == item.id ? 'circle-active' : 'circle']"
-                 v-for="item in newsList"
-                 :key="item.id"
-                 @click="showItem(item.id)"></div>
+            <div class="float-right m-1" :class="[currentItem == index ? 'circle-active' : 'circle']"
+                 v-for="(item, index) in newsList"
+                 :key="index"
+                 @click="showItem(index)"></div>
         </div>
     </div>
 </template>
@@ -28,7 +28,7 @@
 
         data() {
             return {
-                currentItemId: 0
+                currentItem: 0
             }
         },
 
@@ -40,11 +40,11 @@
 
         methods: {
             showNextItem: function () {
-                this.currentItemId = (this.currentItemId + 1) % this.newsList.length;
+                this.currentItem = (this.currentItem + 1) % this.newsList.length;
             },
 
-            showItem: function (id) {
-                this.currentItemId = id;
+            showItem: function (index) {
+                this.currentItem = index;
             }
         }
     }

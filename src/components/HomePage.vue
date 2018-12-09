@@ -5,7 +5,7 @@
                 <Slider :newsList="getSliderData()"/>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-7 offset-1">
                 <div class="row mb-5">
                     <div class="col">
@@ -22,13 +22,15 @@
                 <div class="row mb-5">
                     <div class="col">
                         <MatchList :latestMatchList="getLatestMatchListData(3)"
-                                   :favouritesMatchList="getFavouriteMatchListData(5)" title="Football"/>
+                                   :favouritesMatchList="getFavouriteMatchListData(5)"
+                                   title="Football" :singleType="false"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <MatchList :latestMatchList="getLatestMatchListData(7)"
-                                   :favouritesMatchList="getFavouriteMatchListData(4)" title="Football"/>
+                                   :favouritesMatchList="getFavouriteMatchListData(4)"
+                                   title="Football" :singleType="false"/>
                     </div>
                 </div>
             </div>

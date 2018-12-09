@@ -4,6 +4,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import HomePage from './components/HomePage'
 import TeamPage from './components/TeamPage'
+import PlayerPage from './components/PlayerPage'
+import LeagueListPage from './components/LeagueListPage'
+import LeaguePage from './components/LeaguePage'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -14,8 +17,27 @@ const routes = [
         component: HomePage,
     },
     {
-        path: '/team',
+        path: '/team/:id',
         component: TeamPage,
+        name: 'team',
+        props: true
+    },
+    {
+        path: '/player/:id',
+        component: PlayerPage,
+        name: 'player',
+        props: true
+    },
+    {
+        path: '/league-list',
+        component: LeagueListPage,
+        name: 'leagueList',
+        props: true
+    },
+    {
+        path: '/league/:id',
+        component: LeaguePage,
+        name: 'league',
         props: true
     },
 ]
