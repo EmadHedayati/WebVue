@@ -2,11 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import HomePage from './components/HomePage'
-import TeamPage from './components/TeamPage'
-import PlayerPage from './components/PlayerPage'
-import LeagueListPage from './components/LeagueListPage'
-import LeaguePage from './components/LeaguePage'
+import HomePage from './components/pages/HomePage'
+import TeamPage from './components/pages/TeamPage'
+import PlayerPage from './components/pages/PlayerPage'
+import LeagueListPage from './components/pages/LeagueListPage'
+import LeaguePage from './components/pages/LeaguePage'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)

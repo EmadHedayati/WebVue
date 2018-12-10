@@ -6,7 +6,7 @@
                     <div class="row border p-3">
                         <div class="col-auto align-self-center">
                             <div class="row mx-2">
-                                <img class="icon-size float-right" src="../assets/icons/baseline-search-24px.svg">
+                                <img class="icon-size float-right" src="../../assets/icons/baseline-search-24px.svg">
                             </div>
                         </div>
                         <div class="col align-self-center p-0">
@@ -28,8 +28,8 @@
 </template>
 
 <script>
-    import Dummy from "../utils/Dummy";
-    import LeagueList from "./LeagueList";
+    import Dummy from "../../utils/Dummy";
+    import LeagueList from "../LeagueList";
 
     export default {
         name: 'LeagueListPage',

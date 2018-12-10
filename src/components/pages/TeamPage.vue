@@ -3,20 +3,22 @@
         <div class="col-md-10 offset-1">
             <div class="row mx-0 mb-5">
                 <div class="col">
-                    <AccountBanner :account="player"/>
+                    <AccountBanner :account="team"/>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col">
-                    <Table :table="statistics"/>
+                    <Table :table="matchList"/>
                 </div>
+            </div>
+            <div class="row mb-5">
                 <div class="col">
-                    <Table :table="details"/>
+                    <NewsList :newsList="latestNewsList" title="LATEST NEWS"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <NewsList :newsList="latestNewsList" title="LATEST NEWS"/>
+                    <Table :table="playerList"/>
                 </div>
             </div>
         </div>
@@ -24,13 +26,13 @@
 </template>
 
 <script>
-    import NewsList from "./NewsList";
-    import Dummy from "../utils/Dummy";
-    import Table from "./Table";
-    import AccountBanner from "./AccountBanner";
+    import NewsList from "../partials/NewsList";
+    import Dummy from "../../utils/Dummy";
+    import Table from "../Table";
+    import AccountBanner from "../AccountBanner";
 
     export default {
-        name: 'PlayerPage',
+        name: 'TeamPage',
 
         components: {
             AccountBanner,
@@ -44,35 +46,35 @@
 
         data() {
             return {
-                player: {},
+                team: {},
                 latestNewsList: [],
-                statistics: {},
-                details: {},
+                matchList: [],
+                playerList: [],
             }
         },
 
         methods: {
-            getPlayerData: function () {
-                this.player = Dummy.player();
+            getTeamData: function () {
+                this.team = Dummy.team();
             },
 
             getLatestNewsListData: function () {
                 this.latestNewsList = Dummy.newsList(3);
             },
 
-            getStatisticsData: function () {
-                this.statistics = Dummy.table(6, 4, 'team');
+            getMatchListData: function () {
+                this.matchList = Dummy.table(5, 3, 'team');
             },
 
-            getDetailsData: function () {
-                this.details = Dummy.table(4, 5, 'team');
+            getPlayerListData: function () {
+                this.playerList = Dummy.table(10, 5, 'player');
             },
 
             updateData() {
-                this.getPlayerData();
+                this.getTeamData();
                 this.getLatestNewsListData();
-                this.getStatisticsData();
-                this.getDetailsData();
+                this.getMatchListData();
+                this.getPlayerListData();
             }
         },
 

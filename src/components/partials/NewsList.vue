@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import NewsListItem from "./NewsListItem";
+    import NewsListItem from "../NewsListItem";
 
     export default {
         name: 'NewsList',

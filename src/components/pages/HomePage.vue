@@ -39,10 +39,10 @@
 </template>
 
 <script>
-    import Slider from "./Slider";
-    import NewsList from "./NewsList";
-    import MatchList from "./MatchList";
-    import Dummy from "../utils/Dummy";
+    import Slider from "../Slider";
+    import NewsList from "../partials/NewsList";
+    import MatchList from "../MatchList";
+    import Dummy from "../../utils/Dummy";
 
     export default {
         name: 'HomePage',

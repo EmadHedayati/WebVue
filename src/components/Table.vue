@@ -1,5 +1,5 @@
 <template>
-    <div class="table-responsive border">
+    <div class="table-responsive border table-height">
         <table class="table m-0">
             <thead>
             <tr>
@@ -67,11 +67,9 @@
 </script>
 
 <style scoped>
-    /*table {*/
-        /*display: block;*/
-        /*max-height: 500px;*/
-        /*overflow-y: scroll;*/
-    /*}*/
+    .table-height {
+        max-height: 500px;
+    }
 
     .w-35 {
         width: 35%;
